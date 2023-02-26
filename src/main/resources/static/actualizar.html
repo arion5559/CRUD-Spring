@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Actualizar proyecto</title>
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center mt-3 mb-4">Actualizar proyecto</h1>
+    <form action="/actualizar" method="post">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre">
+                </div>
+                <div class="mb-3">
+                    <label for="fechaInicio" class="form-label">Fecha inicio</label>
+                    <input type="date" class="form-control" id="fechaInicio" name="fechaInicio">
+                </div>
+                <div class="mb-3">
+                    <label for="fechaFin" class="form-label">Fecha fin</label>
+                    <input type="date" class="form-control" id="fechaFin" name="fechaFin">
+                </div>
+                <div class="mb-3">
+                    <label for="estado" class="form-label">Estado</label>
+                    <input type="checkbox" class="form-check-input" id="estado" name="estado">
+                </div>
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Descripción</label>
+                    <textarea class="form-control" id="descripcion" name="descripcion" rows="3">${proyecto.descripcion}</textarea>
+                </div>
+                <input type="hidden" name="id" value="${proyecto.id}">
+                <button type="submit" class="btn btn-primary" id="actualizar">Actualizar</button>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

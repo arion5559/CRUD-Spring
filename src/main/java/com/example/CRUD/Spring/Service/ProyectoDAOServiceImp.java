@@ -3,10 +3,12 @@ package com.example.CRUD.Spring.Service;
 import com.example.CRUD.Spring.DAO.ProyectosDAO;
 import com.example.CRUD.Spring.Modelo.Proyecto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ProyectoDAOServiceImp implements ProyectosDAOService {
 
     @Autowired
@@ -24,11 +26,26 @@ public class ProyectoDAOServiceImp implements ProyectosDAOService {
 
     @Override
     public int guardarProyecto(Proyecto proyecto) {
-        return 0;
+        int res = 0;
+        Proyecto proyectoDB = proyectosDAO.save(proyecto);
+        if (!proyectoDB.equals(null)) {
+            res = 1;
+        }
+        return res;
+    }
+
+    @Override
+    public int actualizarProyecto(int id, Proyecto proyecto) {
+        int res = 0;
+        Proyecto proyectoDB = proyectosDAO.save(proyecto);
+        if (!proyectoDB.equals(null)) {
+            res = 1;
+        }
+        return res;
     }
 
     @Override
     public void eliminarProyecto(int id) {
-
+        proyectosDAO.deleteById(id);
     }
 }

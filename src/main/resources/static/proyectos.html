@@ -9,39 +9,13 @@
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Enlaza el javascript proyectos.js con este -->
+    <script src="/js/proyectos.js"></script>
 </head>
 <body>
 <div class="container">
-    <h1 class="text-center mt-3 mb-4">List/act projects</h1>
-    <div class="row mb-3">
-        <div class="col-md-6">
-            <form>
-                <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre">
-                </div>
-                <div class="mb-3">
-                    <label for="fechaInicio" class="form-label">Fecha inicio</label>
-                    <input type="date" class="form-control" id="fechaInicio">
-                </div>
-                <div class="mb-3">
-                    <label for="fechaFin" class="form-label">Fecha fin</label>
-                    <input type="date" class="form-control" id="fechaFin">
-                </div>
-                <div class="mb-3">
-                    <label for="descripcion" class="form-label">Descripción</label>
-                    <input type="textarea"
-                           class="form-control" id="descripcion">
-                </div>
-                <div class="mb-3">
-                    <label for="estado" class="form-label">Subido</label>
-                    <!-- checkbox para indicar si está subido o no con el texto "Subido" al lado -->
-                    <input type="checkbox" class="form-check-input" id="estado">
-                </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>
-            </form>
-        </div>
-    </div>
+    <h1 class="text-center mt-3 mb-4">Listado proyectos</h1>
+    <a href="/nuevo" class="btn btn-primary mb-3">Nuevo proyecto</a>
     <div class="row">
         <div class="col-md-6">
             <p>Esta es una aplicación para llevar un registro de los proyectos</p>
@@ -67,6 +41,5 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
-<script src="js/proyectos.js"></script>
 </body>
 </html>
