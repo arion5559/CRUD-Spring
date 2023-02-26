@@ -22,11 +22,11 @@
                 </div>
                 <div class="mb-3">
                     <label for="fechaInicio" class="form-label">Fecha inicio</label>
-                    <input type="text" class="form-control" id="fechaInicio">
+                    <input type="date" class="form-control" id="fechaInicio">
                 </div>
                 <div class="mb-3">
                     <label for="fechaFin" class="form-label">Fecha fin</label>
-                    <input type="text" class="form-control" id="fechaFin">
+                    <input type="date" class="form-control" id="fechaFin">
                 </div>
                 <div class="mb-3">
                     <label for="descripcion" class="form-label">Descripción</label>
@@ -34,8 +34,9 @@
                            class="form-control" id="descripcion">
                 </div>
                 <div class="mb-3">
-                    <label for="estado" class="form-label">Estado</label>
-                    <input type="text" class="form-control" id="estado">
+                    <label for="estado" class="form-label">Subido</label>
+                    <!-- checkbox para indicar si está subido o no con el texto "Subido" al lado -->
+                    <input type="checkbox" class="form-check-input" id="estado">
                 </div>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
@@ -65,6 +66,7 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
 <script src="js/proyectos.js"></script>
 </body>
 </html>

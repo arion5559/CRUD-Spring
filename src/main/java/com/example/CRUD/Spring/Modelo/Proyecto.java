@@ -1,9 +1,6 @@
 package com.example.CRUD.Spring.Modelo;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -18,6 +15,7 @@ import java.util.Date;
 public class Proyecto {
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "nombre")
     private String nombre;
@@ -29,17 +27,4 @@ public class Proyecto {
     private Date fechaFin;
     @Column(name = "subido")
     private String subido;
-
-
-    public Proyecto(String nombre, String descripcion, Date fechaInicio, Date fechaFin, String subido) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
-        this.subido = subido;
-    }
-
-    public Proyecto() {
-
-    }
 }

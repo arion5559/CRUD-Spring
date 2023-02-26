@@ -1,11 +1,25 @@
+$document.ready(function () {
+    cargarProyectos();
+    $('#buscar').click(function () {
+        buscarProyectos();
+    });
+    $('#proyectos').on('click', '.actualizar', function () {
+        let id = $(this).data('id');
+        window.location.href = '/actualizar/' + id;
+    });
+    $('#proyectos').on('click', '.eliminar', function () {
+        let id = $(this).data('id');
+        eliminarProyecto(id);
+    });
+});
+
 async function cargarProyectos() {
-    const request = await fetch('/listar', {
+    const request = await fetch('/proyectos', {
         method: 'GET',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(datos)
+        }
     });
     const proyectos = await request.json();
     let listadoHTML = '';
