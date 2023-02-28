@@ -21,7 +21,7 @@ public class ProyectoDAOServiceImp implements ProyectosDAOService {
 
     @Override
     public Optional<Proyecto> obtenerProyectoPorId(int id) {
-        return Optional.empty();
+        return proyectosDAO.findById(id);
     }
 
     @Override

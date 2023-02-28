@@ -2,16 +2,15 @@ package com.example.CRUD.Spring.controlador;
 
 import com.example.CRUD.Spring.Modelo.Proyecto;
 import com.example.CRUD.Spring.Service.ProyectosDAOService;
+import com.fasterxml.jackson.databind.JsonSerializable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping
@@ -32,28 +31,35 @@ public class Controlador {
         return proyectos;
     }
 
-    @GetMapping("/guardarProyecto")
-    public String guardarProyecto(@Validated Proyecto proyecto, Model model) {
+    @PostMapping("/guardarProyecto/{nombre}/{descripcion}/{fechaInicio}/{fechaFin}/{estado}")
+    public void guardarProyecto(@PathVariable("nombre") String nombre,
+                                @PathVariable("descripcion") String descripcion, Model model) {
+        Proyecto proyecto = new Proyecto(nombre, descripcion);
         proyectosDAOService.guardarProyecto(proyecto);
-        return "redirect:/proyectos";
     }
 
-    @GetMapping("/eliminarProyecto")
-    public String eliminarProyecto(int id, Model model) {
+    @DeleteMapping("/eliminarProyecto/{id}")
+    public String eliminarProyecto(@PathVariable("id") int id, Model model) {
         proyectosDAOService.eliminarProyecto(id);
         return "redirect:/proyectos";
     }
 
     @GetMapping("/obtenerProyectoPorId/{id}")
     @ResponseBody
-    public Proyecto obtenerProyectoPorId(@PathVariable int id, Model model) {
-        return proyectosDAOService.obtenerProyectoPorId(id).get();
+    public Optional<Proyecto> obtenerProyectoPorId(@PathVariable("id") int id, Model model) {
+        return proyectosDAOService.obtenerProyectoPorId(id);
     }
 
-    @GetMapping("/actualizarProyecto/{id}")
-    public String actualizarProyecto(@PathVariable int id, @Validated Proyecto proyecto, Model model) {
+    @PutMapping("/actualizarProyecto/{id}/{nombre}/{descripcion}")
+    public String actualizarProyecto(@PathVariable("id") int id,
+                                        @PathVariable("nombre") String nombre,
+                                        @PathVariable("descripcion") String descripcion,
+                                     Model model) {
+        Proyecto proyecto = new Proyecto(nombre, descripcion);
         proyecto.setId(id);
-        proyectosDAOService.guardarProyecto(proyecto);
+        System.out.println(proyecto);
+        System.out.println(id);
+        proyectosDAOService.actualizarProyecto(id, proyecto);
         return "redirect:/proyectos";
     }
 }

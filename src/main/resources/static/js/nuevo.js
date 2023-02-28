@@ -1,24 +1,18 @@
 async function guardar() {
-    let datos = {
-        nombre: document.querySelector('#nombre').value,
-        fechaInicio: document.querySelector('#fechaInicio').value,
-        fechaFin: document.querySelector('#fechaFin').value,
-        descripcion: document.querySelector('#descripcion').value,
-        estado: document.querySelector('#estado').value,
-    };
-    const request = await fetch('/guardar', {
+    const nombre = document.getElementById('nombre').value;
+    const descripcion = document.getElementById('descripcion').value;
+    const request = await fetch(`/guardar/${nombre}/${descripcion}`, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(datos)
     });
-    const response = await request.json();
-    if (response.status === 'OK') {
-        alert('Proyecto guardado correctamente');
-        window.location.href = '/proyectos';
+    let proyecto = await request.json();
+    if (proyecto != null) {
+        alert("Proyecto guardado correctamente");
+        window.location.href = "../proyectos.html";
     } else {
-        alert('Error al guardar el proyecto');
+        alert("Error al guardar el proyecto");
     }
 }

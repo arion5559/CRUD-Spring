@@ -3,28 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Actualizar proyecto</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="js/actualizar.js"></script>
 </head>
 <body>
 <div class="container">
     <h1 class="text-center mt-3 mb-4">Actualizar proyecto</h1>
-    <form action="/actualizar" method="post">
+    <form onsubmit="actualizarProyecto()">
         <div class="row">
             <div class="col-md-6">
                 <div class="mb-3">
                     <label for="nombre" class="form-label">Nombre</label>
                     <input type="text" class="form-control" id="nombre" name="nombre">
-                </div>
-                <div class="mb-3">
-                    <label for="fechaInicio" class="form-label">Fecha inicio</label>
-                    <input type="date" class="form-control" id="fechaInicio" name="fechaInicio">
-                </div>
-                <div class="mb-3">
-                    <label for="fechaFin" class="form-label">Fecha fin</label>
-                    <input type="date" class="form-control" id="fechaFin" name="fechaFin">
-                </div>
-                <div class="mb-3">
-                    <label for="estado" class="form-label">Estado</label>
-                    <input type="checkbox" class="form-check-input" id="estado" name="estado">
                 </div>
                 <div class="mb-3">
                     <label for="descripcion" class="form-label">Descripción</label>
